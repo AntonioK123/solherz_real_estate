@@ -1,0 +1,352 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --color-dark-blue: #213555;
+  --color-blue: #3e5879;
+  --color-beige: #d8c4b6;
+  --color-light-beige: #f5efe7;
+}
+
+@font-face {
+  font-family: "Cinzel";
+  src: url("../fonts/Cinzel-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Cinzel";
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--color-dark-blue);
+}
+
+.video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-bg-mobile {
+  display: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, black, rgba(0, 0, 0, 0.1));
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.content h1 {
+  font-size: clamp(1.3rem, 3vw, 6rem);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  font-weight: 100;
+}
+
+.content .subtitle {
+  font-size: clamp(0.9rem, 1.2vw, 2rem);
+  margin-top: 0;
+  font-weight: 400;
+}
+
+/* Navigation Styles */
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1.25rem;
+  position: absolute;
+  height: 12rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  /* border: 5px solid red; */
+}
+
+.logo {
+  top: 1.5rem;
+  left: 1.5rem;
+  text-align: left;
+}
+
+.logo h2 {
+  font-size: clamp(1.25rem, 2vw, 2.5rem);
+  color: white;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.logo-subtitle {
+  font-size: clamp(0.7rem, 0.9vw, 1rem);
+  color: white;
+  margin-top: 0.1rem;
+  text-align: center;
+}
+
+.menu {
+  /* border: 1px solid red; */
+  width: 40%;
+}
+
+.menu ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  /* margin-right: 2rem; */
+  /* margin-top: 0.7rem; */
+  /* border: 1px solid red; */
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.menu ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Burger Menu Styles */
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-right: 1.5rem;
+  margin-top: 0.7rem;
+}
+
+.burger .line {
+  width: 2rem;
+  height: 0.053rem;
+  background-color: white;
+  margin: 0.17rem 0;
+}
+
+/* Fullscreen Menu */
+.fullscreen-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+.fullscreen-menu ul {
+  list-style: none;
+  text-align: center;
+}
+
+.fullscreen-menu ul li {
+  margin: 2rem 0;
+}
+
+.fullscreen-menu ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 5vw;
+}
+
+/* Close Button (X) */
+.close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 2.5rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 25;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.close-btn .line {
+  width: 2rem;
+  height: 0.053rem;
+  background-color: white;
+  margin: 0.17rem 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Rotate lines to form "X" */
+.close-btn .line:first-child {
+  transform: rotate(45deg);
+  position: absolute;
+}
+
+.close-btn .line:last-child {
+  transform: rotate(-45deg);
+  position: absolute;
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .fullscreen-menu.active {
+    display: flex;
+  }
+}
+
+.about_project-wrapper {
+  background-color: var(--color-beige);
+  /* min-height: 100vh; */
+}
+
+.floor-background {
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+  background: url("../static_assets/images/Floor\ plan.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  height: 100vh;
+}
+
+.floor-background-overlay {
+  background-color: #000;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: 999;
+  opacity: 0.75;
+}
+
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: #111;
+  color: #fff;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Helvetica Neue", sans-serif;
+  transition: all 0.5s ease;
+}
+
+body.preloader-active,
+html.preloader-active {
+  overflow: hidden;
+  height: 100%;
+}
+
+.loader-inner {
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+  /* border: 10px solid red; */
+  width: 80%;
+  z-index: 9999;
+}
+
+.preloader-wrapper {
+  width: 100%;
+}
+
+.loader-text-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 99999;
+  /* border: 1px solid red; */
+}
+
+.loader-logo {
+  font-weight: 100;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: clamp(1.25rem, 15vw, 26rem);
+  z-index: 99999;
+  /* letter-spacing: 2rem; */
+}
+
+.loader-brand {
+  font-size: clamp(1rem, 2vw, 18.5rem);
+  z-index: 99999;
+  letter-spacing: 5px;
+  /* border: 1px solid red; */
+  font-weight: 200;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  width: 28%;
+  /* margin-left: 1.7rem; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#loader-counter {
+  font-size: 1.5rem;
+  opacity: 0.8;
+  margin-top: 1rem;
+}
+
+.loader-spinner {
+  width: 150px;
+  height: 150px;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

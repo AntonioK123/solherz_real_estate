@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solherz - Nekretnine</title>
+    <link rel="stylesheet" href="styles/main.css" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="./js/index.js"></script>
+  </head>
+  <body>
+    <div id="preloader">
+      <div class="floor-background"></div>
+      <div class="floor-background-overlay"></div>
+      <div class="preloader-wrapper">
+        <div class="loader-text-wrapper">
+          <p class="loader-logo">Solherz</p>
+          <p class="loader-brand">Nekretnine</p>
+        </div>
+      </div>
+      <div class="loader-inner">
+        <div class="loader-spinner"></div>
+        <p id="loader-counter">0%</p>
+      </div>
+    </div>
+
+    <!-- Overlay Section -->
+    <section class="hero">
+      <video class="video-bg" id="desktopVideo" autoplay muted loop>
+        <source src="./assets/video/background_video.mp4" type="video/mp4" />
+      </video>
+      <video
+        class="video-bg-mobile"
+        id="mobileVideo"
+        autoplay
+        muted
+        loop
+        playsinline
+      >
+        <source
+          src="./assets/video/background_video_mobile.mp4"
+          type="video/mp4"
+        />
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="content">
+        <h1 data-i18n="hero-title">Poslovna budućnost na dohvat ruke</h1>
+        <p class="subtitle" data-i18n="hero-subtitle">
+          <!-- Ihrem zuverlässigen Partner für Bauteile und Produkte -->
+        </p>
+      </div>
+    </section>
+
+    <!-- Navigation -->
+    <header>
+      <div class="logo">
+        <h2>Solherz Nekretnine</h2>
+        <p class="logo-subtitle" data-i18n="logo-slogan">
+          Kvaliteta koja povezuje
+        </p>
+      </div>
+      <nav class="menu">
+        <ul>
+          <li><a href="#home" data-i18n="nav-home">Home</a></li>
+          <li><a href="#home" data-i18n="nav-home">O projektu</a></li>
+          <li><a href="#home" data-i18n="nav-home">Lokacija</a></li>
+          <li><a href="#home" data-i18n="nav-home">Tlocrti</a></li>
+          <li><a href="#home" data-i18n="nav-home">Rezervacija</a></li>
+          <li>
+            <a href="#" onclick="setLanguage('hr')"> HR </a>
+          </li>
+          <li>
+            <a href="#" onclick="setLanguage('en')"> EN </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- Burger Menu for Mobile -->
+      <div class="burger" id="burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </header>
+
+    <!-- Mobile Fullscreen Menu -->
+    <div class="fullscreen-menu" id="fullscreenMenu">
+      <div class="close-btn" id="closeMenu">
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <ul>
+        <li><a href="#home" data-i18n="burger-home">Home</a></li>
+
+        <li>
+          <a href="#" onclick="setLanguage('hr')"> HR </a>
+        </li>
+        <li>
+          <a href="#" onclick="setLanguage('en')"> EN </a>
+        </li>
+      </ul>
+    </div>
+
+    <!------------------------------- About Project Section ------------------------------------>
+    <section class="about_project-wrapper"></section>
+
+    <!-------------------------------- Location Section  ---------------------------------------->
+
+    <section class="location-wrapper"></section>
+
+    <!-------------------------------- Floor Plans Section  ---------------------------------------->
+
+    <section class="floor-plans-wrapper"></section>
+
+    <!-------------------------------- Contact and Reservation Section  ---------------------------------------->
+
+    <section class="contact-reservations-wrapper"></section>
+  </body>
+</html>
