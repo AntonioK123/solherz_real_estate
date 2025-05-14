@@ -1,100 +1,9 @@
-// document.addEventListener("DOMContentLoaded", () => {
-//   const counter = document.getElementById("loader-counter");
-//   const preloader = document.getElementById("preloader");
-
-//   document.documentElement.classList.add("preloader-active");
-//   document.body.classList.add("preloader-active");
-
-//   let current = { value: 0 };
-
-//   gsap.to(current, {
-//     value: 100,
-//     duration: 2,
-//     ease: "power1.out",
-//     onUpdate: () => {
-//       counter.textContent = Math.floor(current.value) + "%";
-//     },
-//     onComplete: () => {
-//       gsap.to(preloader, {
-//         opacity: 0,
-//         scale: 1.1,
-//         duration: 0.6,
-//         ease: "power2.inOut",
-//         onComplete: () => {
-//           preloader.style.display = "none";
-
-//           document.documentElement.classList.remove("preloader-active");
-//           document.body.classList.remove("preloader-active");
-//         },
-//       });
-//     },
-//   });
-// });
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   const counter = document.getElementById("loader-counter");
-//   const preloader = document.getElementById("preloader");
-//   const logo = document.querySelector(".loader-logo");
-//   const brand = document.querySelector(".loader-brand");
-
-//   // Lock scroll during preload
-//   document.documentElement.classList.add("preloader-active");
-//   document.body.classList.add("preloader-active");
-
-//   let current = { value: 0 };
-
-//   gsap.to(current, {
-//     value: 100,
-//     duration: 2,
-//     ease: "power1.out",
-//     onStart: () => {
-//       // Fade in logo and brand
-//       gsap.fromTo(
-//         [logo, brand],
-//         { y: 50, opacity: 0 },
-//         { y: 0, opacity: 1, duration: 1.2, ease: "power2.out", stagger: 0.2 }
-//       );
-
-//       // Pulse effect
-//       gsap.to([logo, brand], {
-//         opacity: 0.3,
-//         duration: 1.2,
-//         repeat: -1,
-//         yoyo: true,
-//         ease: "power1.inOut",
-//         delay: 1.2, // wait until initial fade in finishes
-//       });
-//     },
-//     onUpdate: () => {
-//       counter.textContent = Math.floor(current.value) + "%";
-//     },
-//     onComplete: () => {
-//       // Stop pulsing before exit
-//       gsap.killTweensOf([logo, brand]);
-
-//       // Fade out preloader
-//       gsap.to(preloader, {
-//         opacity: 0,
-//         scale: 1.1,
-//         duration: 0.6,
-//         ease: "power2.inOut",
-//         onComplete: () => {
-//           preloader.style.display = "none";
-
-//           // Restore scrolling
-//           document.documentElement.classList.remove("preloader-active");
-//           document.body.classList.remove("preloader-active");
-//         },
-//       });
-//     },
-//   });
-// });
-
 document.addEventListener("DOMContentLoaded", () => {
   const counter = document.getElementById("loader-counter");
   const preloader = document.getElementById("preloader");
   const logo = document.querySelector(".loader-logo");
   const brand = document.querySelector(".loader-brand");
+  const header = document.querySelector("header");
 
   // Lock scroll during preload
   document.documentElement.classList.add("preloader-active");
@@ -107,14 +16,14 @@ document.addEventListener("DOMContentLoaded", () => {
     duration: 2,
     ease: "power1.out",
     onStart: () => {
-      // Initial fade-in
+      // Initial fade-in for logo and brand
       gsap.fromTo(
         [logo, brand],
         { y: 50, opacity: 0 },
         { y: 0, opacity: 1, duration: 1.2, ease: "power2.out", stagger: 0.2 }
       );
 
-      // Strong pulse (opacity + scale)
+      // Pulse effect
       gsap.to([logo, brand], {
         opacity: 0.4,
         scale: 1.01,
@@ -122,17 +31,15 @@ document.addEventListener("DOMContentLoaded", () => {
         repeat: -1,
         yoyo: true,
         ease: "power1.inOut",
-        delay: 1.2, // starts after fade-in
+        delay: 1.2,
       });
     },
     onUpdate: () => {
       counter.textContent = Math.floor(current.value) + "%";
     },
     onComplete: () => {
-      // Stop pulsing before preloader exit
       gsap.killTweensOf([logo, brand]);
 
-      // Fade out preloader
       gsap.to(preloader, {
         opacity: 0,
         scale: 1.1,
@@ -140,12 +47,37 @@ document.addEventListener("DOMContentLoaded", () => {
         ease: "power2.inOut",
         onComplete: () => {
           preloader.style.display = "none";
-
-          // Restore scrolling
           document.documentElement.classList.remove("preloader-active");
           document.body.classList.remove("preloader-active");
+
+          // Initialize header scroll behavior after preload
+          initHeaderScroll();
         },
       });
     },
   });
+
+  //Header scroll logic
+  function initHeaderScroll() {
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener("scroll", () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY <= 0) {
+        // At top of page: transparent header
+        header.classList.remove("hide-on-scroll");
+        header.classList.remove("gradient-on-scroll");
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling down: hide header
+        header.classList.add("hide-on-scroll");
+      } else {
+        // Scrolling up: show header with gradient + dark blue
+        header.classList.remove("hide-on-scroll");
+        header.classList.add("gradient-on-scroll");
+      }
+
+      lastScrollY = currentScrollY;
+    });
+  }
 });

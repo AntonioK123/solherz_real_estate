@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Solherz - Nekretnine</title>
     <link rel="stylesheet" href="styles/main.css" type="text/css" />
+    <link rel="stylesheet" href="styles/about_project.css" type="text/css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="./js/index.js"></script>
   </head>
   <body>
+    <!-- ------------------------------Preloader----------------------- -->
     <div id="preloader">
       <div class="floor-background"></div>
       <div class="floor-background-overlay"></div>
@@ -27,7 +29,10 @@
     <!-- Overlay Section -->
     <section class="hero">
       <video class="video-bg" id="desktopVideo" autoplay muted loop>
-        <source src="./assets/video/background_video.mp4" type="video/mp4" />
+        <source
+          src="./static_assets/video/building_test.mp4"
+          type="video/mp4"
+        />
       </video>
       <video
         class="video-bg-mobile"
@@ -54,10 +59,7 @@
     <!-- Navigation -->
     <header>
       <div class="logo">
-        <h2>Solherz Nekretnine</h2>
-        <p class="logo-subtitle" data-i18n="logo-slogan">
-          Kvaliteta koja povezuje
-        </p>
+        <h3>Solherz Nekretnine</h3>
       </div>
       <nav class="menu">
         <ul>
@@ -101,7 +103,9 @@
     </div>
 
     <!------------------------------- About Project Section ------------------------------------>
-    <section class="about_project-wrapper"></section>
+    <section class="about_project-wrapper">
+      <!-- <div class="about_project-wrapper-overlay"></div> -->
+    </section>
 
     <!-------------------------------- Location Section  ---------------------------------------->
 
