@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="styles/main.css" type="text/css" />
     <link rel="stylesheet" href="styles/about_project.css" type="text/css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
     <script src="./js/index.js"></script>
   </head>
   <body>
@@ -48,11 +50,30 @@
         />
       </video>
       <div class="hero-overlay"></div>
-      <div class="content">
-        <h1 data-i18n="hero-title">Poslovna budućnost na dohvat ruke</h1>
-        <p class="subtitle" data-i18n="hero-subtitle">
-          <!-- Ihrem zuverlässigen Partner für Bauteile und Produkte -->
-        </p>
+      <div class="content-wrapper">
+        <div class="content">
+          <h1 data-i18n="hero-title">Poslovna budućnost na dohvat ruke</h1>
+        </div>
+        <div class="button-section">
+          <a href="#">
+            <button class="fancy-button">
+              Saznajte Više
+              <span class="corner top-left"></span>
+              <span class="corner top-right"></span>
+              <span class="corner bottom-left"></span>
+              <span class="corner bottom-right"></span>
+            </button>
+          </a>
+          <a href="#">
+            <button class="fancy-button">
+              Rezervirajte prezentaciju
+              <span class="corner top-left"></span>
+              <span class="corner top-right"></span>
+              <span class="corner bottom-left"></span>
+              <span class="corner bottom-right"></span>
+            </button>
+          </a>
+        </div>
       </div>
     </section>
 

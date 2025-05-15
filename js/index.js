@@ -5,7 +5,42 @@ document.addEventListener("DOMContentLoaded", () => {
   const brand = document.querySelector(".loader-brand");
   const header = document.querySelector("header");
 
-  // Lock scroll during preload
+  const isDev = false;
+
+  // Header scroll logic
+  function initHeaderScroll() {
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener("scroll", () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY <= 0) {
+        // At top of page: transparent header
+        header.classList.remove("hide-on-scroll");
+        header.classList.remove("gradient-on-scroll");
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling down: hide header
+        header.classList.add("hide-on-scroll");
+      } else {
+        // Scrolling up: show header with gradient + dark blue
+        header.classList.remove("hide-on-scroll");
+        header.classList.add("gradient-on-scroll");
+      }
+
+      lastScrollY = currentScrollY;
+    });
+  }
+
+  // Skip preloader completely during development
+  if (isDev) {
+    if (preloader) preloader.style.display = "none";
+    document.documentElement.classList.remove("preloader-active");
+    document.body.classList.remove("preloader-active");
+    initHeaderScroll();
+    return;
+  }
+
+  //Lock scroll during preload (production mode)
   document.documentElement.classList.add("preloader-active");
   document.body.classList.add("preloader-active");
 
@@ -49,35 +84,9 @@ document.addEventListener("DOMContentLoaded", () => {
           preloader.style.display = "none";
           document.documentElement.classList.remove("preloader-active");
           document.body.classList.remove("preloader-active");
-
-          // Initialize header scroll behavior after preload
           initHeaderScroll();
         },
       });
     },
   });
-
-  //Header scroll logic
-  function initHeaderScroll() {
-    let lastScrollY = window.scrollY;
-
-    window.addEventListener("scroll", () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY <= 0) {
-        // At top of page: transparent header
-        header.classList.remove("hide-on-scroll");
-        header.classList.remove("gradient-on-scroll");
-      } else if (currentScrollY > lastScrollY) {
-        // Scrolling down: hide header
-        header.classList.add("hide-on-scroll");
-      } else {
-        // Scrolling up: show header with gradient + dark blue
-        header.classList.remove("hide-on-scroll");
-        header.classList.add("gradient-on-scroll");
-      }
-
-      lastScrollY = currentScrollY;
-    });
-  }
 });
