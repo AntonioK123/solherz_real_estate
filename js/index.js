@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const brand = document.querySelector(".loader-brand");
   const header = document.querySelector("header");
 
-  const isDev = false;
+  const isDev = true;
 
   // Header scroll logic
   function initHeaderScroll() {
