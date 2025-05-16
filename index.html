@@ -52,10 +52,12 @@
       <div class="hero-overlay"></div>
       <div class="content-wrapper">
         <div class="content">
-          <h1 data-i18n="hero-title">Poslovna budućnost <br>na dohvat ruke</h1>
+          <h1 data-i18n="hero-title">
+            Poslovna budućnost <br />na dohvat ruke
+          </h1>
         </div>
         <div class="button-section">
-          <a href="#">
+          <a href="#about">
             <button class="fancy-button">
               Saznajte Više
               <span class="corner top-left"></span>
@@ -64,7 +66,7 @@
               <span class="corner bottom-right"></span>
             </button>
           </a>
-          <a href="#">
+          <a href="#reservation">
             <button class="fancy-button">
               Rezervirajte prezentaciju
               <span class="corner top-left"></span>
@@ -85,10 +87,12 @@
       <nav class="menu">
         <ul>
           <li><a href="#home" data-i18n="nav-home">Home</a></li>
-          <li><a href="#home" data-i18n="nav-home">O projektu</a></li>
-          <li><a href="#home" data-i18n="nav-home">Lokacija</a></li>
-          <li><a href="#home" data-i18n="nav-home">Tlocrti</a></li>
-          <li><a href="#home" data-i18n="nav-home">Rezervacija</a></li>
+          <li><a href="#about" data-i18n="nav-about">O projektu</a></li>
+          <li><a href="#location" data-i18n="nav-location">Lokacija</a></li>
+          <li><a href="#floor_plan" data-i18n="nav-floor_plan">Tlocrti</a></li>
+          <li>
+            <a href="#reservation" data-i18n="nav-reservation">Rezervacija</a>
+          </li>
           <li>
             <a href="#" onclick="setLanguage('hr')"> HR </a>
           </li>
@@ -113,6 +117,12 @@
       </div>
       <ul>
         <li><a href="#home" data-i18n="burger-home">Home</a></li>
+        <li><a href="#about" data-i18n="burger-about">O projektu</a></li>
+        <li><a href="#location" data-i18n="burger-location">Lokacija</a></li>
+        <li><a href="#floor_plan" data-i18n="burger-floor_plan">Tlocrti</a></li>
+        <li>
+          <a href="#reservation" data-i18n="burger-reservation">Rezervacija</a>
+        </li>
 
         <li>
           <a href="#" onclick="setLanguage('hr')"> HR </a>
@@ -124,20 +134,48 @@
     </div>
 
     <!------------------------------- About Project Section ------------------------------------>
-    <section class="about_project-wrapper">
-      <!-- <div class="about_project-wrapper-overlay"></div> -->
+    <section class="about_project-wrapper" id="about">
+      <div class="about-project-container">
+        <h1 data-i18n="about-project-title">O projektu</h1>
+        <p data-i18n="about-project-text">
+          Nova poslovna zgrada na adresi Ulica Pobijenih Franjevaca 10
+          (nekadašnja “Obilaznica”) u poslovnoj zoni Pecara spaja moderan
+          dizajn, vrhunsku energetsku učinkovitost i prilagodljive uredske
+          prostore te će, zahvaljujući pažljivo osmišljenom arhitektonskom
+          konceptu, postati idealna lokacija za banke, osiguravajuća društva,
+          tvrtke i trgovačke lance. U ovoj ranoj fazi projekta otvorene su
+          ekskluzivne prilike za rezervaciju i investiciju po povoljnijim
+          uvjetima, pri čemu rani ulagači ne samo da ostvaruju nižu ulaznu
+          cijenu, nego i dobivaju mogućnost prilagoditi unutarnje rasporede po
+          vlastitim željama prije početka izvedbe.
+        </p>
+        <h1 data-i18n="key-concepts-title" class="key-concepts">
+          Ključne značajke:
+        </h1>
+        <ul>
+          <li>
+            <strong>Lokacija:</strong> na glavnoj prometnici Sirokog Brijega,
+            ulaz u grad u poslovnoj zoni
+          </li>
+          <li>
+            <strong>Arhitektura: </strong> na glavnoj prometnici Sirokog
+            Brijega, ulaz u grad u poslovnoj zoni
+          </li>
+          <li><strong>Parking: </strong> Podzemna garaža, vanjski parking</li>
+        </ul>
+      </div>
     </section>
 
     <!-------------------------------- Location Section  ---------------------------------------->
 
-    <section class="location-wrapper"></section>
+    <section class="location-wrapper" id="location"></section>
 
     <!-------------------------------- Floor Plans Section  ---------------------------------------->
 
-    <section class="floor-plans-wrapper"></section>
+    <section class="floor-plans-wrapper" id="floor_plan"></section>
 
     <!-------------------------------- Contact and Reservation Section  ---------------------------------------->
 
-    <section class="contact-reservations-wrapper"></section>
+    <section class="contact-reservations-wrapper" id="reservation"></section>
   </body>
 </html>
