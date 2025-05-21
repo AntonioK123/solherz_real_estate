@@ -6,6 +6,8 @@
     <title>Solherz - Nekretnine</title>
     <link rel="stylesheet" href="styles/main.css" type="text/css" />
     <link rel="stylesheet" href="styles/about_project.css" type="text/css" />
+    <link rel="stylesheet" href="styles/location.css" type="text/css" />
+    <link rel="stylesheet" href="styles/floor_plans.css" type="text/css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
@@ -168,11 +170,29 @@
 
     <!-------------------------------- Location Section  ---------------------------------------->
 
-    <section class="location-wrapper" id="location"></section>
-
+    <section class="location-wrapper" id="location">
+      <div class="location-container">
+        <h1 data-i18n="location-title">Lokacija</h1>
+        <iframe
+          src="https://www.google.com/maps?q=43.372551, 17.605537&hl=en&z=17&output=embed"
+          width="100%"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        >
+        </iframe>
+      </div>
+    </section>
+    <!-- 43.372551, 17.605537 -->
     <!-------------------------------- Floor Plans Section  ---------------------------------------->
 
-    <section class="floor-plans-wrapper" id="floor_plan"></section>
+    <section class="floor-plans-wrapper" id="floor_plan">
+      <div class="floor-plans-container">
+        <h1 data-i18n="floor-plans-title">TIPOVI PROSTORA I TLOCRT</h1>
+      </div>
+    </section>
 
     <!-------------------------------- Contact and Reservation Section  ---------------------------------------->
 

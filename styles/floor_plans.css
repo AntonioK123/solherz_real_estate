@@ -1,0 +1,48 @@
+.floor-plans-wrapper {
+  position: relative;
+  background: var(--color-dark-blue);
+  min-height: 50vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.floor-plans-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+  pointer-events: none;
+}
+
+.floor-plans-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 85%;
+  z-index: 2;
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.floor-plans-container > h1 {
+  color: white;
+  font-size: clamp(1.8rem, 4vw, 4rem);
+  width: 100%;
+  text-align: left;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+}
+
+.location-container > p {
+  color: white;
+  width: 100%;
+  font-size: clamp(0.85rem, 2vw, 1.2rem);
+  line-height: 1.6;
+  max-width: 100%;
+  text-align: justify;
+  margin-bottom: 1rem;
+}
