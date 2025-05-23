@@ -11,8 +11,10 @@ html {
 :root {
   --color-dark-blue: #213555;
   --color-blue: #3e5879;
-  --color-beige: #d8c4b6;
-  --color-light-beige: #f5efe7;
+  --navy-blue: #2f374b;
+  --color-beige: #bb8060;
+  --color-light-beige: #f1eee9;
+  --dark-brown: #26201e;
 }
 
 @font-face {
